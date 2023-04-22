@@ -15,11 +15,8 @@ def main(argv=None):
             action="store_true")
     args = parser.parse_args(argv)
 
-
-    print(args)
     img1 = cv2.imread(args.map_png)
     img = cv2.cvtColor(img1, cv2.COLOR_RGB2BGR)
-    print(img.shape)
 
     vertical_img = img.reshape((-1,3))
     vertical_24 = np.dot(vertical_img.astype(np.uint32),[1,256,65536])
@@ -48,7 +45,6 @@ def main(argv=None):
     print("sea provinces = ",str(l_lua_see).rjust(5," "))
     print("        total = ",str(l_lua_prov+l_lua_see).rjust(5," ") )
 
-
     sall = set(result)
     salls = set(result_sea)
     z = sall.intersection(salls)
@@ -66,7 +62,6 @@ def main(argv=None):
     if not no_see_land_overlap:
         with open('overlap_color_codes.txt', 'w') as fff:
             print(list(z), file=fff)
-
 
     surgb = set(urgb)
     result2 = list()  
@@ -103,7 +98,6 @@ def main(argv=None):
         print("\x1b[1;37;41m"+" FAILED! "+'\x1b[0m') 
         print(" FIX THE MAP !".center(40," "))
     print("="*40)
-
 
     s1 = surgb.difference(sall) 
     s2 = s1.difference(salls)
