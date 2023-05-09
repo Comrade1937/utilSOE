@@ -1,0 +1,9 @@
+{
+    "rgo":["oil","coffee","weat","rice","sand","stone"],
+    "rgo_num":5,
+    "rgo_lvl":10,
+    "building_num":5,
+    "building_lvl":10,
+    "core_num":10,
+    "lang_num":10
+}
