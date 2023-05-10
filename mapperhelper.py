@@ -118,7 +118,8 @@ def read_lua(uploaded_file):
 
 def write_province_table(fl,name,terrain,color,dfl2) ->None: 
     s1 = f'province=Province:new{{ref_name="{name}",'
-    s2 = f'name=translate("{name.capitalize()}"),color={color},'
+    scl = re.sub("#","0x",color)
+    s2 = f'name=translate("{name.capitalize()}"),color={scl},'
     s3 = f'terrain={terrain},'
     s4 = write_rgo_table(dfl2)
     s5 = s1+s2+s3+s4+"}\n"
@@ -326,7 +327,7 @@ def main():
     columns = st.columns(3)
     with columns[1]:
         st.title(":red[\u2605] Mapper Helper :red[\u2605]")
-        st.write('<p style="text-align: center">v0.2 Workers of the World unite! </p>',
+        st.write('<p style="text-align: center">v0.2.1 Workers of the World unite! </p>',
                 unsafe_allow_html=True)
    
     with st.sidebar:
